@@ -40,9 +40,11 @@ public partial class Form1 : Form
 		if (sender is Button button)
 		{
 			if(button.Text == "="){
-				outputResultBox.Text = "";
-				outputResultBox.SelectionStart = 0;
-				outputResultBox.Text = inputExpressionBox.Text;
+				string expression = inputExpressionBox.Text;
+				Calculator calculate = new Calculator();
+				double result = calculate.Evaluate(expression);
+				MessageBox.Show("Result: " + result);
+				
 			}
 			else if(button.Text == "CLEAR"){
 				inputExpressionBox.Text = "";
@@ -70,6 +72,7 @@ public partial class Form1 : Form
 		}
 
     }
+
 	
 }
 
